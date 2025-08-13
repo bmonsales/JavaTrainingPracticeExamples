@@ -7,7 +7,7 @@ public class Main {
     //    4. Hint: Use Math.abs() to calculate the distance of two numbers.
 
     public static void main(String[] args) {
-        int[] list = new int[]{ 4, 8, 6, 1, 2, 9, 4 };
+        int[] list = { 4, 8, 6, 1, 2, 9, 4 };
         System.out.println("Index of the shortest distance: " + findShortestDistance(list));
         list = new int[]{ 1, 2, 3, 5, 8, 20 };
         System.out.println("Index of the shortest distance: " + findShortestDistance(list));
@@ -16,8 +16,9 @@ public class Main {
     public static int findShortestDistance(int[] list) {
         int distance = 0; int index = 0;
         for (int i = 0; i < list.length - 1; i++) {
-            if(distance == 0 || distance > Math.abs(list[i] - list[i + 1]) ) {
-                distance = Math.abs(list[i] - list[i + 1]);
+            int currentDistance = Math.abs(list[i] - list[i + 1]);
+            if(distance == 0 || distance > currentDistance) {
+                distance = currentDistance;
                 index = i;
                 if(distance == 1) break;
             }
